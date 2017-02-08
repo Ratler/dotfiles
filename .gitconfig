@@ -1,0 +1,33 @@
+[user]
+        signingkey = BD115DD6
+	email = ratler@stderr.eu
+	name = Stefan Wold
+[color]
+	diff = auto
+	ui = 
+	status = auto
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	cm = !git commit -m
+	lg = log --pretty=format:'%Cred%h%Creset - %C(magenta)%d%Creset %s [%C(cyan)%an%Creset] %Cgreen(%cr)%Creset'  --date=relative
+	llg = log --pretty=format:'%C(red)%h%Creset - %C(magenta)%d%Creset %s [%C(cyan)%cn%Creset] %Cgreen(%cr)%Creset' --date=relative --decorate --numstat
+	po = push origin master:master
+	pot = push --tags origin master:master
+	di = diff
+	dc = diff --cached
+	pr = !bash -c 'git checkout -b "${0}" && git commit -v && git push ratler "${0}" && hub pull-request && git checkout master'
+	cleanbr = !git branch --merged | egrep -v '(\\*|master)' | xargs -n 1 git branch -d 
+	ec = config --global -e
+	up = !git pull --rebase --prune
+[color "diff"]
+	meta = yellow
+	frag = magenta
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[push]
+	default = simple
