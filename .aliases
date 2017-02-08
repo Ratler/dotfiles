@@ -1,0 +1,5 @@
+dsh:__dsh
+u:cd /home/ratler/src/unitedid
+y:cd /home/ratler/src/yubico
+vu2f:cd /home/ratler/src/unitedid/vagrant; U2F_PLUGIN=1 vagrant provision idp
+v:cd /home/ratler/src/unitedid/vagrant
