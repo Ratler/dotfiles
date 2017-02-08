@@ -1,0 +1,50 @@
+Xft.dpi:		96
+URxvt.perl-ext-common: 	default,selection-autotransform,tabbed,-matcher,option-popup,xim-onthespot,url-select
+URxvt.depth:            32
+URxvt.background:       rgba:0000/0000/0000/dddd
+URxvt.foreground:       grey
+URxvt.scrollstyle:      none
+URxvt.secondaryScroll:  true
+URxvt.underlineColor:   cyan
+URxvt.geometry:         81x24
+URxvt.loginShell:       false
+URxvt.meta:             ignore
+URxvt.meta8:            false
+URxvt.utmpInhibit:      true
+URxvt.saveLines:        8192
+URxvt.pastableTabs:     false
+!URxvt.font:             smoothansi.se,xft:PowerlineSymbols:size=9:antialias=true
+!URxvt.boldFont:         smoothansi.se,xft:PowerlineSymbols:size=9:antialias=tru
+URxvt.font:             xft:Terminess Powerline:style=Regular:hinting=true:antialias=true:size=8,xft:Inconsolata\ For\ Powerline:size=9:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
+URxvt.boldFont:         xft:Terminess Powerline:style=Regular:bold:hinting=true:antialias=true:size=8,xft:Inconsolata\ For\ Powerline:size=9:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
+!URxvt.font:             xft:Inconsolata for Powerline:style=medium:hinting=true:antialias=true:size=8,xft:Inconsolata\ For\ Powerline:size=9:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
+!URxvt.boldFont:         xft:Inconsolata for Powerline:style=medium:bold:hinting=true:antialias=true:size=8,xft:Inconsolata\ For\ Powerline:size=9:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
+!URxvt.font:             xft:Source Code Pro for Powerline:hinting=True:antialias=True:size=7,xft:Inconsolata\ For\ Powerline:size=9:antialias=true
+!URxvt.boldFont:         xft:Source Code Pro for Powerline:bold:hinting=True:antialias=True:size=7,xft:Inconsolata\ For\ Powerline:size=9:antialias=true
+!URxvt.font: xft:Inconsolata For Powerline:size=10:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
+!URxvt.boldFont: xft:Inconsolata For Powerline:size=10:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
+URxvt.fading:           40
+URxvt.scrollBar:        false
+!URxvt.letterSpace: -1
+!URxvt.transparent:      true
+URxvt.shading:          25
+!URxvt.urlLauncher:      /home/ratler/download/opera
+URxvt.urlLauncher:      /usr/bin/xdg-open
+URxvt.matcher.button:   1
+URxvt.termName:         rxvt-256color
+URxvt.tabbar-fg:        7
+URxvt.tab-bg:           6
+URxvt.pointerBlank:	    true
+!URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.underline: true
+!URxvt.url-select.launcher: /usr/bin/opera -newtab
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.autocopy: true
+URxvt.url-select.button: 1
+
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
