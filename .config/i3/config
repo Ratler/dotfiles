@@ -42,7 +42,8 @@ workspace 9 output eDP1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec terminology
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -212,6 +213,7 @@ assign [class="slack"] 1
 assign [class="romium"] 2
 assign [class="irefox"] 2
 assign [class="jetbrains-idea"] 4
+assign [class="jetbrains-pycharm"] 4
 assign [class="Spotify"] 9
 
 for_window [class="Gajim" instance="gajim"] floating enable
