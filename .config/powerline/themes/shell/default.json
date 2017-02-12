@@ -4,6 +4,11 @@
       "args": {
         "status_colors": true
       }
+    },
+    "powerline.segments.shell.cwd": {
+      "args": {
+        "dir_shorten_len": 1
+      }
     }
   },
 	"segments": {
