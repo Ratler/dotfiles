@@ -38,12 +38,16 @@ ve() {
       else
         NEWENV=$2
       fi
-      PIP=pip
+      if [ -z "$NEWENV" ]; then
+        return
+      fi
+
+      PIP=pip3
       if [[ $NEWENV =~ -py2$ ]]; then
         VARGS="-p python2"
         PIP=pip2
       fi
-      virtualenv $VARGS $VENV_DIR/$NEWENV
+      virtualenv ${VARGS:--p python3} $VENV_DIR/$NEWENV
       . $VENV_DIR/$NEWENV/bin/activate
       $PIP install nose nosexcover pylint pyflakes pep8
       ;;
@@ -54,7 +58,7 @@ ve() {
       ;;
     r|R)
       echo -n "Remove virtualenv #: "
-            read ANS
+      read ANS
       if [ -d "${VENV[$ANS]}" ];  then
         rm -rf "${VENV[$ANS]}"
       fi
