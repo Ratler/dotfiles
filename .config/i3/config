@@ -222,9 +222,6 @@ for_window [class="Spotify"] move to workspace 9
 
 exec dex -a
 exec /usr/bin/compton --config /home/ratler/.compton.conf
-exec --no-startup-id nm-applet
-exec blueman-applet
-#exec parcellite
 exec_always pkill syndaemon; /usr/bin/syndaemon -i .8 -KRd
 exec xautolock -time 10 -locker '~/.local/bin/lockscreen.sh' &
 exec_always xbindkeys
