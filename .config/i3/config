@@ -41,6 +41,12 @@ workspace 9 output eDP1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier Mod1
 
+# Disable follow mouse focus
+focus_follows_mouse no
+
+# Remember desktop
+workspace_auto_back_and_forth yes
+
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec terminology
@@ -213,7 +219,7 @@ assign [class="slack"] 1
 assign [class="romium"] 2
 assign [class="irefox"] 2
 assign [class="jetbrains-idea"] 4
-assign [class="jetbrains-pycharm"] 4
+#assign [class="jetbrains-pycharm"] 4
 assign [class="Spotify"] 9
 
 for_window [class="Gajim" instance="gajim"] floating enable
