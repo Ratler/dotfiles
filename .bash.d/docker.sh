@@ -3,8 +3,8 @@ dsh() {
 
   IFS=$'\n'
 
-  DOCKER_HEADER=$(docker ps | head -1)
-  declare -a DOCKER_CONTAINERS=($(docker ps | tail -n +2 | tac))
+  DOCKER_HEADER=$(docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Status}}' | head -1)
+  declare -a DOCKER_CONTAINERS=($(docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Status}}'| tail -n +2 | tac))
 
   if [ -z $1 ]; then
     echo "Choose docker container to start shell in:"
