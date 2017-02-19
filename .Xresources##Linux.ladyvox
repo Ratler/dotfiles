@@ -15,12 +15,10 @@ URxvt.saveLines:        8192
 URxvt.pastableTabs:     false
 !URxvt.font:             smoothansi.se,xft:PowerlineSymbols:size=9:antialias=true
 !URxvt.boldFont:         smoothansi.se,xft:PowerlineSymbols:size=9:antialias=tru
-URxvt.font:             xft:Terminess Powerline:style=Regular:hinting=true:antialias=true:size=8,xft:Inconsolata\ For\ Powerline:size=9:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
-URxvt.boldFont:         xft:Terminess Powerline:style=Regular:bold:hinting=true:antialias=true:size=8,xft:Inconsolata\ For\ Powerline:size=9:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
 !URxvt.font:             xft:Inconsolata for Powerline:style=medium:hinting=true:antialias=true:size=8,xft:Inconsolata\ For\ Powerline:size=9:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
 !URxvt.boldFont:         xft:Inconsolata for Powerline:style=medium:bold:hinting=true:antialias=true:size=8,xft:Inconsolata\ For\ Powerline:size=9:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
-!URxvt.font:             xft:Source Code Pro for Powerline:hinting=True:antialias=True:size=7,xft:Inconsolata\ For\ Powerline:size=9:antialias=true
-!URxvt.boldFont:         xft:Source Code Pro for Powerline:bold:hinting=True:antialias=True:size=7,xft:Inconsolata\ For\ Powerline:size=9:antialias=true
+URxvt.font:             xft:Source Code Pro for Powerline:hinting=True:antialias=True:size=7,xft:Inconsolata\ For\ Powerline:size=9:antialias=true
+URxvt.boldFont:         xft:Source Code Pro for Powerline:bold:hinting=True:antialias=True:size=7,xft:Inconsolata\ For\ Powerline:size=9:antialias=true
 !URxvt.font: xft:Inconsolata For Powerline:size=10:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
 !URxvt.boldFont: xft:Inconsolata For Powerline:size=10:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
 URxvt.fading:           40
@@ -41,10 +39,11 @@ URxvt.url-select.underline: true
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.autocopy: true
 URxvt.url-select.button: 1
+URxvt.iso14755: False
 
-Xft.autohint: 0
+Xft.autohint: true
 Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintfull
-Xft.hinting: 1
-Xft.antialias: 1
+Xft.hintstyle:  hintslight
+Xft.hinting: true
+Xft.antialias: true
 Xft.rgba: rgb
