@@ -49,7 +49,7 @@ ve() {
       fi
       virtualenv ${VARGS:--p python3} $VENV_DIR/$NEWENV
       . $VENV_DIR/$NEWENV/bin/activate
-      $PIP install nose nosexcover pylint pyflakes pep8
+      $PIP install nose nosexcover pylint pyflakes pep8 ipython
       ;;
     d|D)
       if [ -n "$VIRTUAL_ENV" ]; then
