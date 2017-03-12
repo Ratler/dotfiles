@@ -73,3 +73,5 @@ __ve_prompt() {
     printf "$1" "${VIRTUAL_ENV##*/}"
   fi
 }
+
+alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
