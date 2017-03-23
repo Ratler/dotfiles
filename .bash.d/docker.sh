@@ -1,3 +1,5 @@
+
+shopt -s extglob
 dsh() {
   local DOCKER_CONTAINERS IFS CONTAINER_ID DOCKER_HEADER
 
