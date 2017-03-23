@@ -46,7 +46,7 @@ if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
 fi
 
 if [ "$(uname -s)" == "Linux" ]; then
-  export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
+  export SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-/run/user/1000/gnupg/S.gpg-agent.ssh}
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
