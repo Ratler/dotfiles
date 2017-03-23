@@ -1,4 +1,4 @@
-Xft.dpi:		96
+!Xft.dpi:		96
 URxvt.perl-ext-common: 	default,selection-autotransform,tabbed,-matcher,option-popup,xim-onthespot,url-select
 URxvt.depth:            32
 URxvt.background:       rgba:0000/0000/0000/dddd
@@ -47,3 +47,4 @@ Xft.hintstyle:  hintslight
 Xft.hinting: true
 Xft.antialias: true
 Xft.rgba: rgb
+Xcursor.size: 16
