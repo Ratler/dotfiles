@@ -218,7 +218,7 @@ assign [class="gajim"] 1
 assign [class="slack"] 1
 assign [class="romium"] 2
 assign [class="irefox"] 2
-assign [class="jetbrains-idea"] 4
+#assign [class="jetbrains-idea"] 4
 #assign [class="jetbrains-pycharm"] 4
 assign [class="Spotify"] 9
 
