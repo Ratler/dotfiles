@@ -1,4 +1,3 @@
-
 shopt -s extglob
 dsh() {
   local DOCKER_CONTAINERS IFS CONTAINER_ID DOCKER_HEADER
@@ -26,6 +25,13 @@ dsh() {
         CONTAINER_ID=$(echo ${DOCKER_CONTAINERS[$ANS]} | awk '{ print $1 }')
         echo "Starting a shell in $CONTAINER_ID"
         docker exec -ti $CONTAINER_ID bash
+      fi
+    ;;
+    +([a-zA-Z]))
+      if [[ $(docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Status}}' | tail -n +2 | tac | grep -c $ANS) -eq 1  ]]; then
+        docker exec -ti $(docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Status}}' | grep $ANS | awk '{ print $1}') bash
+      else
+        echo "Search criteria matched more then one container."
       fi
     ;;
     *)
