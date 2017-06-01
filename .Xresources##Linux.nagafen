@@ -20,8 +20,8 @@ URxvt.meta8:            false
 URxvt.utmpInhibit:      true
 URxvt.saveLines:        8192
 URxvt.pastableTabs:     false
-URxvt.font:             xft:Source Code Pro:style=Regular:hinting=true:antialias=true:size=9,xft:PowerlineSymbols:size=9:antialias=true,xft:Source Han Sans JP,源ノ角ゴシック JP,Source Han Sans JP Regular,源ノ角ゴシック JP Regular:style=Regular
-URxvt.boldFont:         xft:Source Code Pro:style=Regular:bold:hinting=true:antialias=true:size=9,xft:PowerlineSymbols:size=9:antialias=true,xft:Source Han Sans JP,源ノ角ゴシック JP,Source Han Sans JP Regular,源ノ角ゴシック JP Regular:style=Regular
+URxvt.font:              -*-terminus-*-*-*-*-24-*-*-*-*-*-*-*,xft:Inconsolata for Powerline:antialias=true,xft:DejaVu Sans Mono for Powerline:antialias=True
+URxvt.boldFont:          -*-terminus-*-*-*-*-24-*-*-*-*-*-*-*,xft:Inconsolata for Powerline:antialias=true,xft:DejaVu Sans Mono for Powerline:antialias=True
 URxvt.fading:           40
 URxvt.scrollBar:        false
 URxvt.shading:          25
