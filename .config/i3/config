@@ -48,8 +48,8 @@ focus_follows_mouse no
 workspace_auto_back_and_forth yes
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec terminology
+bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec terminology
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -226,6 +226,7 @@ for_window [class="Gajim" instance="gajim"] floating enable
 for_window [class="Slack" instance="slack"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Spotify"] move to workspace 9
+for_window [class="Pinentry-gtk-2" instance="pinentry-gtk-2"] floating enable
 
 exec dex -a
 exec /usr/bin/compton --config /home/ratler/.compton.conf
