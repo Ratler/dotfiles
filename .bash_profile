@@ -32,6 +32,13 @@ if grep -q 'ID=lunar' /etc/os-release; then
   done
 fi
 
+if grep -q 'ID=arch' /etc/os-release && test -d /etc/profile.d/; then
+  for profile in /etc/profile.d/*.sh; do
+    test -r "$profile" && . "$profile"
+  done
+  unset profile
+fi
+
 export EDITOR
 export XDG_CONFIG_HOME=$HOME/.config
 
