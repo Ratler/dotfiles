@@ -12,8 +12,8 @@
 	br = branch
 	co = checkout
 	cm = !git commit -m
-	lg = log --pretty=format:'%Cred%h%Creset - %C(magenta)%d%Creset %s [%C(cyan)%an%Creset] %Cgreen(%cr)%Creset'  --date=relative
-	llg = log --pretty=format:'%C(red)%h%Creset - %C(magenta)%d%Creset %s [%C(cyan)%cn%Creset] %Cgreen(%cr)%Creset' --date=relative --decorate --numstat
+	lg = log --pretty=format:'%Cred%h%Creset - %C(magenta)%d%Creset %s [%C(cyan)%an%Creset (%G?)] %Cgreen(%cr)%Creset'  --date=relative
+	llg = log --pretty=format:'%C(red)%h%Creset - %C(magenta)%d%Creset %s [%C(cyan)%cn%Creset (%G?)] [%G?] %Cgreen(%cr)%Creset' --date=relative --decorate --numstat
 	po = push origin master:master
 	pot = push --tags origin master:master
 	di = diff
