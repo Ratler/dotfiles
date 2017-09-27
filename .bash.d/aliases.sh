@@ -51,7 +51,9 @@ __aliases() {
   esac
 }
 
-alias ls='ls --color=auto'
+if [ "$(uname -s)" = "Linux" ]; then
+  alias ls='ls --color=auto'
+fi
 alias a="__aliases"
 alias rdesktop="rdesktop -g 1280x960 -k sv -K"
 alias git="hub"
