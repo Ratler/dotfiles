@@ -76,7 +76,7 @@ fi
 if [ "$HOST_TYPE" == "Linux" ]; then
   export SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-/run/user/1000/gnupg/S.gpg-agent.ssh}
 elif [ "$HOST_TYPE" == "Darwin" ]; then
-  export SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-/Users/$USER/.gnupg/S.gpg-agent.ssh}
+  export SSH_AUTH_SOCK=/Users/$USER/.gnupg/S.gpg-agent.ssh
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
