@@ -1,7 +1,7 @@
 [user]
         signingkey = BD115DD6
-	email = ratler@stderr.eu
 	name = Stefan Wold
+	useConfigOnly = true
 [color]
 	diff = auto
 	ui = 
