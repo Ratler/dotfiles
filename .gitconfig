@@ -22,6 +22,7 @@
 	cleanbr = !git branch --merged | egrep -v '(\\*|master)' | xargs -n 1 git branch -d 
 	ec = config --global -e
 	up = !git pull --rebase --prune
+	fpr = "!fpr() { git fetch origin pull/$1/head:${2:-$1}; git co ${2:-$1}; }; fpr"
 [color "diff"]
 	meta = yellow
 	frag = magenta
