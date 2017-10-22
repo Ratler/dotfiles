@@ -38,6 +38,9 @@ Thumbs.db
 Session.vim
 .netrwhist
 
+# Emacs
+.#*
+
 # Jetbrains IDEs
 .idea/
 *.ipr
