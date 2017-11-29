@@ -13,14 +13,8 @@ URxvt.meta8:            false
 URxvt.utmpInhibit:      true
 URxvt.saveLines:        8192
 URxvt.pastableTabs:     false
-!URxvt.font:             smoothansi.se,xft:PowerlineSymbols:size=9:antialias=true
-!URxvt.boldFont:         smoothansi.se,xft:PowerlineSymbols:size=9:antialias=tru
-!URxvt.font:             xft:Inconsolata for Powerline:style=medium:hinting=true:antialias=true:size=8,xft:Inconsolata\ For\ Powerline:size=9:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
-!URxvt.boldFont:         xft:Inconsolata for Powerline:style=medium:bold:hinting=true:antialias=true:size=8,xft:Inconsolata\ For\ Powerline:size=9:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
-URxvt.font:             xft:Source Code Pro for Powerline:hinting=True:antialias=True:size=7,xft:Inconsolata\ For\ Powerline:size=9:antialias=true
-URxvt.boldFont:         xft:Source Code Pro for Powerline:bold:hinting=True:antialias=True:size=7,xft:Inconsolata\ For\ Powerline:size=9:antialias=true
-!URxvt.font: xft:Inconsolata For Powerline:size=10:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
-!URxvt.boldFont: xft:Inconsolata For Powerline:size=10:antialias=true,xft:PowerlineSymbols:size=9:antialias=true
+URxvt.font:             -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*,xft:xos4 Terminess Powerline:hinting=True:antialias=True
+URxvt.boldFont:         -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*,xft:xos4 Terminess Powerline:hinting=True:antialias=True
 URxvt.fading:           40
 URxvt.scrollBar:        false
 !URxvt.letterSpace: -1
