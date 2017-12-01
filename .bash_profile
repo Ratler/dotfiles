@@ -32,6 +32,11 @@ else
   eval $(dircolors -b $HOME/.DIR_COLORS)
 fi
 
+if type systemctl &> /dev/null && systemctl is-enabled --user emacs &> /dev/null; then
+  EDITOR="emacsclient -c"
+  alias emacs="$EDITOR"
+fi
+
 [ -z "$EDITOR" ] && {
     # an editor has not been set, go find a decent one, the last one
     # found in the row is picked and set.
@@ -78,6 +83,8 @@ if [ "$HOST_TYPE" == "Linux" ]; then
 elif [ "$HOST_TYPE" == "Darwin" ]; then
   export SSH_AUTH_SOCK=/Users/$USER/.gnupg/S.gpg-agent.ssh
 fi
+
+export PATH+=":$HOME/.git.d"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
