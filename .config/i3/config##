@@ -192,6 +192,15 @@ bindsym $mod+Pause mode "$mode_system"
 bar {
         status_command i3status
     	#i3bar_command ~/.config/i3/lemonbar/i3_lemonbar.sh
+  colors {
+    separator #586e75
+    background #002b36
+    statusline #aea79f
+    focused_workspace #586e75 #586e75 #ffffff
+    active_workspace #073642 #073642 #ffffff
+    inactive_workspace #002b36 #002b36 #aea79f
+    urgent_workspace #77216f #77216f #ffffff
+  }
 }
 
 
@@ -227,9 +236,15 @@ for_window [class="Slack" instance="slack"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Spotify"] move to workspace 9
 for_window [class="Pinentry-gtk-2" instance="pinentry-gtk-2"] floating enable
+for_window [class="Pinentry" instance="pinentry"] floating enable
 
 exec dex -a
 exec /usr/bin/compton --config /home/ratler/.compton.conf
 exec_always pkill syndaemon; /usr/bin/syndaemon -i .8 -KRd
 exec xautolock -time 10 -locker '~/.local/bin/lockscreen.sh' &
 exec_always xbindkeys
+
+client.focused #586e75 #586e75 #fdf6e3 #268bd2
+client.focused_inactive #073642 #073642 #93a1a1 #002b36
+client.unfocused #002b36 #002b36 #586e75 #002b36
+client.urgent #dc322f #dc322f #fdf6e3 #dc322f
