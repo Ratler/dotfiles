@@ -10,7 +10,6 @@
 # export DEFAULTKDE=
 # EDITOR=
 # LANG=
-export HISTSIZE=10000
 HOST_TYPE=$(uname -s)
 
 if [ "$HOST_TYPE" == "Darwin" ]; then
