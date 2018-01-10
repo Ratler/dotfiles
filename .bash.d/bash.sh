@@ -1,6 +1,6 @@
 [[ $- != *i* ]] && return
 
-set -o noclobber
+#set -o noclobber
 export HISTCONTROL=ignoredups:erasedups:ignorespace
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history"
 export HISTSIZE=10000
