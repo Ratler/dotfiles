@@ -12,6 +12,23 @@
 # LANG=
 HOST_TYPE=$(uname -s)
 
+if test -f "/etc/os-release"; then
+  if grep -q 'ID=lunar' /etc/os-release; then
+    # Now we can set package specific paths and variables:
+    for RC in /etc/profile.d/*.rc ; do
+      # note we can set the permissions for root-specific scripts:
+      [ -r $RC ] && . $RC
+    done
+  fi
+
+  if grep -q 'ID=arch' /etc/os-release && test -d /etc/profile.d/; then
+    for profile in /etc/profile.d/*.sh; do
+      test -r "$profile" && . "$profile"
+    done
+    unset profile
+  fi
+fi
+
 if [ "$HOST_TYPE" == "Darwin" ]; then
   export LANG="en_US.UTF-8"
   export LC_CTYPE="en_US.UTF-8"
@@ -36,35 +53,7 @@ if type systemctl &> /dev/null && systemctl is-enabled --user emacs &> /dev/null
   alias emacs="$EDITOR"
 fi
 
-[ -z "$EDITOR" ] && {
-    # an editor has not been set, go find a decent one, the last one
-    # found in the row is picked and set.
-    [ -x /usr/bin/pico  ] && EDITOR="pico"
-    [ -x /usr/bin/nano  ] && EDITOR="nano"
-    [ -x /usr/bin/elvis ] && EDITOR="elvis"
-    [ -x /usr/bin/vi    ] && EDITOR="vi"
-    [ -x /usr/bin/vim   ] && EDITOR="vim"
-    [ -x /usr/bin/emacs ] && EDITOR="emacs"
-    }
-
-if test -f "/etc/os-release"; then
-  if grep -q 'ID=lunar' /etc/os-release; then
-    # Now we can set package specific paths and variables:
-    for RC in /etc/profile.d/*.rc ; do
-      # note we can set the permissions for root-specific scripts:
-      [ -r $RC ] && . $RC
-    done
-  fi
-
-  if grep -q 'ID=arch' /etc/os-release && test -d /etc/profile.d/; then
-    for profile in /etc/profile.d/*.sh; do
-      test -r "$profile" && . "$profile"
-    done
-    unset profile
-  fi
-fi
-
-export EDITOR
+export EDITOR=${EDITOR:-emacs}
 export XDG_CONFIG_HOME=$HOME/.config
 
 # Load all custom bash functions
@@ -77,12 +66,7 @@ if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
   gpg-connect-agent /bye >/dev/null 2>&1
 fi
 
-if [ "$HOST_TYPE" == "Linux" ]; then
-  export SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-/run/user/1000/gnupg/S.gpg-agent.ssh}
-elif [ "$HOST_TYPE" == "Darwin" ]; then
-  export SSH_AUTH_SOCK=/Users/$USER/.gnupg/S.gpg-agent.ssh
-fi
-
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export PATH+=":$HOME/.git.d"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
