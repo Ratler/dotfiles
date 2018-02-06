@@ -66,7 +66,7 @@ if ! pgrep -x -u "${USER}" gpg-agent &> /dev/null; then
   gpg-connect-agent /bye &> /dev/null
 fi
 
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-$(gpgconf --list-dirs agent-ssh-socket)}
 export PATH+=":$HOME/.git.d"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
