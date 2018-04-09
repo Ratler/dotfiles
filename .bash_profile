@@ -13,19 +13,12 @@
 HOST_TYPE=$(uname -s)
 
 if test -f "/etc/os-release"; then
-  if grep -q 'ID=lunar' /etc/os-release; then
+  if egrep -q 'ID=(lunar|arch)' /etc/os-release; then
     # Now we can set package specific paths and variables:
-    for RC in /etc/profile.d/*.rc ; do
+    for RC in /etc/profile.d/*.rc /etc/profile.d/*.sh; do
       # note we can set the permissions for root-specific scripts:
       [ -r $RC ] && . $RC
     done
-  fi
-
-  if grep -q 'ID=arch' /etc/os-release && test -d /etc/profile.d/; then
-    for profile in /etc/profile.d/*.sh; do
-      test -r "$profile" && . "$profile"
-    done
-    unset profile
   fi
 fi
 
@@ -67,7 +60,7 @@ if ! pgrep -x -u "${USER}" gpg-agent &> /dev/null; then
 fi
 
 export SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-$(gpgconf --list-dirs agent-ssh-socket)}
-export PATH+=":$HOME/.git.d"
+export PATH+=":$HOME/.git.d:$HOME/bin"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
