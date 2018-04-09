@@ -56,7 +56,6 @@ if [ "$(uname -s)" = "Linux" ]; then
 fi
 alias a="__aliases"
 alias rdesktop="rdesktop -g 1280x960 -k sv -K"
-alias git="hub"
 alias pysmtp="su -c 'python -m smtpd -n -c DebuggingServer localhost:25'"
 alias open="xdg-open"
 alias gk="killall -9 gpg-agent; gpg-agent --daemon; gpg --card-status"

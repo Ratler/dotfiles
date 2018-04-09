@@ -1,28 +1,39 @@
 [user]
-        signingkey = BD115DD6
+  signingkey = BD115DD6
 	name = Stefan Wold
 	useConfigOnly = true
+[core]
+	excludesfile = ~/.gitignore_global
 [color]
 	diff = auto
 	ui = 
 	status = auto
 [alias]
 	st = status
-	ci = commit
+	s = status -s
+	c = commit
 	br = branch
 	co = checkout
+	pl = pull
 	cm = !git commit -m
 	lg = log --pretty=format:'%Cred%h%Creset - %C(magenta)%d%Creset %s [%C(cyan)%an%Creset (%G?)] %Cgreen(%cr)%Creset'  --date=relative
 	llg = log --pretty=format:'%C(red)%h%Creset - %C(magenta)%d%Creset %s [%C(cyan)%cn%Creset (%G?)] [%G?] %Cgreen(%cr)%Creset' --date=relative --decorate --numstat
+	follow = log -p --follow
+	who = shortlog -n -s --no-merges
 	po = push origin master:master
+	ps = push
 	pot = push --tags origin master:master
+	d = diff
 	di = diff
 	dc = diff --cached
 	pr = !bash -c 'git checkout -b "${0}" && git commit -v && git push ratler "${0}" && hub pull-request && git checkout master'
 	cleanbr = !git branch --merged | egrep -v '(\\*|master)' | xargs -n 1 git branch -d 
 	ec = config --global -e
 	up = !git pull --rebase --prune
+	alias = "config --get-regexp ^alias."
 	fpr = "!fpr() { git fetch origin pull/$1/head:${2:-$1}; git co ${2:-$1}; }; fpr"
+	checkpoint = "!sh -c \"git stash save $(date +%Y-%m-%d-%H:%M:%S) - $1 && git stash apply && git stash list -5 && echo 'Stopped at 5 (there may be more stashes) ...'"
+	track = remote show origin
 [color "diff"]
 	meta = yellow
 	frag = magenta
