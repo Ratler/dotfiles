@@ -1,0 +1,28 @@
+#!/bin/bash
+shopt -s extglob
+
+if type peco &> /dev/null; then
+  PR=$(hub issue -f "%i:  %t  %U%n" --include-pulls | peco)
+else
+  OLD_IFS=$IFS
+  export IFS=$'\n'
+  declare -a ALL_PR=($(hub issue -f "%i:  %t  %U%n" --include-pulls))
+  export IFS=$OLD_IFS
+  for i in ${!ALL_PR[@]}; do
+    printf "%s)\t%s\n" "$i" "${ALL_PR[$i]}"
+  done
+  echo -n "Choose PR #> "
+  read ANS
+
+  case "$ANS" in
+    +([0-9]))
+      PR=${ALL_PR[$ANS]}
+    ;;
+    *)
+    ;;
+  esac
+fi
+
+if [ -n "$PR" ]; then
+  hub checkout ${PR##*  }
+fi
