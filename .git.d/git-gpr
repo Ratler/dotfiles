@@ -1,5 +1,9 @@
 #!/bin/bash
 shopt -s extglob
+if ! type hub &> /dev/null; then
+  echo "git gpr requires hub >= 2.3.0-pre10 (https://github.com/github/hub) and optionally peco (https://github.com/peco/peco)"
+  exit 0
+fi
 
 if type peco &> /dev/null; then
   PR=$(hub issue -f "%i:  %t  %U%n" --include-pulls | peco)
