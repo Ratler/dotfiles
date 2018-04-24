@@ -13,11 +13,10 @@ URxvt.meta8:            false
 URxvt.utmpInhibit:      true
 URxvt.saveLines:        8192
 URxvt.pastableTabs:     false
-URxvt.font:		 -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*,xft:xos4 Terminess Powerline:hinting=True:antialias=True
-URxvt.boldFont:          -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*,xft:xos4 Terminess Powerline:hinting=True:antialias=True
+URxvt.font:             xft:xos4 Terminus:style=Regular:pixelsize=12,xft:xos4 Terminess Powerline:hinting=True:antialias=True
+URxvt.boldFont:         xft:xos4 Terminus:style=Regular:pixelsize=12,xft:xos4 Terminess Powerline:hinting=True:antialias=True
 URxvt.fading:           40
 URxvt.scrollBar:        false
-!URxvt.letterSpace: -1
 !URxvt.transparent:      true
 URxvt.shading:          25
 !URxvt.urlLauncher:      /home/ratler/download/opera
