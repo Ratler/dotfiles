@@ -1,2 +1,3 @@
 .bash.d/local.sh##*
+.bash.d/aws.sh
 .ssh/config
