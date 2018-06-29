@@ -1,9 +1,9 @@
 [user]
-  signingkey = BD115DD6
+	signingkey = BD115DD6
 	name = Stefan Wold
 	useConfigOnly = true
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore
 [color]
 	diff = auto
 	ui = 
