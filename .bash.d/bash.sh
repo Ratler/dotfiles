@@ -2,14 +2,14 @@
 
 export HISTCONTROL=ignoredups:erasedups:ignorespace
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:jobs"
-export HISTSIZE=-1
+export HISTSIZE=15000
 export PROMPT_DIRTRIM=2
-#shopt -s histappend
+shopt -s histappend
 shopt -s cmdhist
 
 
 if type fzf &> /dev/null; then
-  if [ -f /usr/shar/fzf/completion.bash ]; then
+  if [ -f /usr/share/fzf/completion.bash ]; then
     . /usr/share/fzf/completion.bash
     . /usr/share/fzf/key-bindings.bash
   elif [ -f /usr/local/opt/fzf/shell/completion.bash ]; then
