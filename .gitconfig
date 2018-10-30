@@ -32,7 +32,7 @@
 	up = !git pull --rebase --prune
 	alias = "config --get-regexp ^alias."
 	fpr = "!fpr() { git fetch origin pull/$1/head:${2:-$1}; git co ${2:-$1}; }; fpr"
-	checkpoint = "!sh -c \"git stash save $(date +%Y-%m-%d-%H:%M:%S) - $1 && git stash apply && git stash list -5 && echo 'Stopped at 5 (there may be more stashes) ...'"
+	checkpoint = "!bash -c \"git stash save $(date +%Y-%m-%d-%H:%M:%S) - $1 && git stash apply && git stash list -5 && echo 'Stopped at 5 (there may be more stashes) ...'\""
 	track = remote show origin
 [color "diff"]
 	meta = yellow
