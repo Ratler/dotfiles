@@ -12,7 +12,8 @@
     },
     "aws_session": {
       "args": {
-        "shorten_profile_name": true
+        "shorten_profile_name": true,
+        "filter_profile_name": "(Klarna_ADFS_|.*/)"
       }
     }
   },
