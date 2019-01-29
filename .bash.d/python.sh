@@ -24,12 +24,22 @@ ve() {
     ANS=$1
   fi
 
+  if [ -d "$VENV_DIR/$ANS" ]; then
+    . $VENV_DIR/$ANS/bin/activate
+    return
+  fi
+
   case "$ANS" in
    +([0-9]))
       if [ -n "${VENV[$ANS]}" ]; then
         echo "Activating ${VENV[$ANS]##*/}"
         . ${VENV[$ANS]}/bin/activate
       fi
+      ;;
+    l|L)
+      for i in ${!VENV[@]}; do
+        printf "%s)\t%s\n" "$i" "${VENV[$i]##*/}"
+      done
       ;;
     n|N)
       if [ -z $2 ]; then
