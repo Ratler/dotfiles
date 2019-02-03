@@ -1,0 +1,10 @@
+#!/bin/bash
+xhost +localhost
+killall ssh-agent
+killall gpg-agent
+/usr/libexec/polkit-gnome-authentication-agent-1 &
+/usr/X11R6/bin/xset b off
+setxkbmap se -option "ctrl:nocaps" -model pc105 -variant "nodeadkeys"
+pkill -f xbindkeys
+xbindkeys
+eval `gpg-agent --daemon --enable-ssh-support`
