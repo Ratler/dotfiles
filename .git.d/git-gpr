@@ -29,4 +29,6 @@ fi
 
 if [ -n "$PR" ]; then
   hub checkout ${PR##*  }
+  git --no-pager diff master...
+  hub ci-status -v
 fi

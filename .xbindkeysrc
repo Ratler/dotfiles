@@ -1,10 +1,13 @@
 # thumb wheel up => increase volume
 "pactl set-sink-volume @DEFAULT_SINK@ +2%"
-   b:6
+   F12 
 
 # thumb wheel down => lower volume
 "pactl set-sink-volume @DEFAULT_SINK@ -2%"
-   b:7
+   F11
+
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+   F10
 
 # Play/Pause
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"

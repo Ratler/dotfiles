@@ -9,6 +9,11 @@
       "args": {
         "dir_shorten_len": 1
       }
+    },
+   "aws_session": {
+      "args": {
+        "shorten_profile_name": true
+      }
     }
   },
 	"segments": {
@@ -29,8 +34,12 @@
 				"priority": 50
 			},
       {
-        "function": "powerline_gitstatus.gitstatus",
+        "function": "powerline_aws_session.aws_session",
         "priority": 40
+      },
+      {
+        "function": "powerline_gitstatus.gitstatus",
+        "priority": 50
       },
 			{
 				"function": "powerline.segments.shell.cwd",
