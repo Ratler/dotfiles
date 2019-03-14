@@ -3,3 +3,4 @@
 .ssh/config
 .aws/config
 .config/.token
+.backgrounds/*
