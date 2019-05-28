@@ -2,5 +2,5 @@
 .bash.d/aws.sh
 .ssh/config
 .aws/config
-.config/.token
+.config/.token.*
 .backgrounds/*
