@@ -1,0 +1,11 @@
+#!/bin/bash
+
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$CURRENT_BRANCH" = "master" ]; then
+  echo "Nothing to merge, bailing out!"
+  exit 0
+fi
+
+git checkout master
+git merge $CURRENT_BRANCH $@
