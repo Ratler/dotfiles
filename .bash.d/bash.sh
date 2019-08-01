@@ -25,6 +25,22 @@ if type fzf &> /dev/null; then
     ag --nobreak --nofilename "$*" $HOME/.bash_history $HOME/.bash_history.d | fzf
   }
 
+  s() {
+    local dir
+    dir=($(find $HOME/src \
+               $HOME/src/lunar \
+               $HOME/src/klarna \
+               $HOME/src/klarna/c2c \
+               -maxdepth 1 -type d -name "*$1*" -print 2> /dev/null))
+
+    if [[ "${!dir[@]}" == 0 ]]; then
+      cd "${dir[0]}"
+    else
+      dir=$(printf '%s\n' "${dir[@]}" | fzf +m)
+      cd "$dir"
+    fi
+  }
+
   complete -cf h
   complete -cf hi
 fi
