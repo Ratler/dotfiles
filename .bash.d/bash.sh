@@ -28,10 +28,15 @@ if type fzf &> /dev/null; then
   s() {
     local dir
     dir=($(find $HOME/src \
-               $HOME/src/lunar \
-               $HOME/src/klarna \
-               $HOME/src/klarna/c2c \
-               -maxdepth 1 -type d -name "*$1*" -print 2> /dev/null))
+                $HOME/src/lunar \
+                $HOME/src/klarna \
+                $HOME/src/klarna/c2c \
+                -maxdepth 1 -type d -name "*$1*" -print 2> /dev/null))
+
+    if [[ "$dir" == "" ]]; then
+      echo "No match found for '$1'."
+      return
+    fi
 
     if [[ "${!dir[@]}" == 0 ]]; then
       cd "${dir[0]}"
