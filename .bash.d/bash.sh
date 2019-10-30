@@ -27,11 +27,9 @@ if type fzf &> /dev/null; then
 
   s() {
     local dir
-    dir=($(find $HOME/src \
+    dir=($(find -L $HOME/src \
                 $HOME/src/lunar \
-                $HOME/src/klarna \
-                $HOME/src/klarna/c2c \
-                -maxdepth 1 -type d -name "*$1*" -print 2> /dev/null))
+                -maxdepth 1 -type d -name "*$1*" -a ! -name ".Trashes" -a ! -name ".fseventsd" -a ! -name "lunar" -print 2> /dev/null))
 
     if [[ "$dir" == "" ]]; then
       echo "No match found for '$1'."
