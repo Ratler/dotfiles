@@ -45,6 +45,8 @@ if [ -f "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh" 
   . /usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
 elif [ -f "/usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh" ]; then
   . /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+elif [ -f "/usr/local//lib/python3.7/site-packages/powerline/bindings/shell/powerline.sh" ]; then
+  . /usr/local//lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
 elif [ -f "/usr/local/lib/python3.6/site-packages/powerline_status-2.6-py3.6.egg/powerline/bindings/bash/powerline.sh" ]; then
   . /usr/local/lib/python3.6/site-packages/powerline_status-2.6-py3.6.egg/powerline/bindings/bash/powerline.sh
 elif [ -f "/usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh" ]; then
