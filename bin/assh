@@ -1,0 +1,56 @@
+#!/bin/bash
+
+check_cmd() {
+  cmd=$1; shift
+  if ! type $cmd &> /dev/null; then
+    echo "$@"
+    exit 1
+  fi
+}
+
+main() {
+  local instance_info instance role account role_arn temporary_credentials aws_args
+
+  if [ -z "$AWS_CLI_PROFILE" ]; then
+    acp
+  fi
+
+  if [ -z "$AWS_CLI_PROFILE" ]; then
+    exit 1
+  fi
+
+  echo "Using profile $AWS_CLI_PROFILE"
+  aws_args+=" --profile $AWS_CLI_PROFILE"
+
+  profile_region=$(aws --profile $AWS_CLI_PROFILE configure get region)
+  echo "Using region ${AWS_REGION:-$profile_region}, override by exporting AWS_REGION"
+  aws_args+=" --region ${AWS_REGION:-$profile_region}"
+
+  role="c2c-tooling-role"
+  account=$(aws $aws_args sts get-caller-identity --query 'Account' --output text)
+  role_arn="arn:aws:sts::${account}:role/$role"
+
+  echo "Assuming role $role_arn"
+  temporary_credentials=$(aws sts assume-role --role-arn="${role_arn}" --role-session-name="grond-role-$USER")
+
+  unset AWS_PROFILE
+
+  export "AWS_ACCESS_KEY_ID=$(echo "${temporary_credentials}" | jq -re '.Credentials.AccessKeyId')"
+  export "AWS_SECRET_ACCESS_KEY=$(echo "${temporary_credentials}" | jq -re '.Credentials.SecretAccessKey')"
+  export "AWS_SESSION_TOKEN=$(echo "${temporary_credentials}" | jq -re '.Credentials.SessionToken')"
+
+  if [ -z "$1" ]; then
+    instance_info=$(aws $aws_args ec2 describe-instances | jq -r '.Reservations[].Instances[]|[.InstanceId, (.Tags[]|select(.Key=="Name")|.Value)] | @tsv' | sort -k2 | peco)
+    instance=$(echo $instance_info | awk '{print $1}')
+  fi
+
+  echo "Connecting to instance ${instance:-$1}"
+  #exec /tmp/openssh/bin/ssh -vvv -o ProxyCommand="aws $aws_args ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'" ec2-user@${instance:-$1}
+  exec aws $aws_args ssm start-session --target ${instance:-$1}
+}
+
+check_cmd peco "Requires peco, download it here https://github.com/peco/peco/releases"
+check_cmd aws "Requires AWS CLI, pip3 install awscli"
+check_cmd jq "Requires jq, install it using your favorite package manager"
+
+main $@
