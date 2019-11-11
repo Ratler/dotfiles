@@ -1,20 +1,30 @@
 shopt -s extglob
 dsh() {
   local DOCKER_CONTAINERS IFS CONTAINER_ID DOCKER_HEADER
-
-  IFS=$'\n'
+  ORIG_IFS=$IFS
+  NEW_IFS=$'\n'
+  IFS=$NEW_IFS
 
   DOCKER_HEADER=$(docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Status}}' | head -1)
   declare -a DOCKER_CONTAINERS=($(docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Status}}'| tail -n +2 | tac))
 
-  if [ -z $1 ]; then
-    echo "Choose docker container to start shell in:"
-    echo -e "#\t$DOCKER_HEADER"
+  print_containers() {
     for i in ${!DOCKER_CONTAINERS[@]}; do
       printf "%s\t%s\n" "$i" "${DOCKER_CONTAINERS[$i]}"
     done
-    echo -n "Container #> "
-    read ANS
+  }
+
+  if [ -z $1 ]; then
+    if complete -v fzf &> /dev/null; then
+      ANS=$(print_containers | fzf --tac --prompt 'Start a shell in container: ')
+      ANS=$(echo $ANS | awk '{ print $1 }')
+    else
+      echo "Start a shell in container:"
+      echo -e "#\t$DOCKER_HEADER"
+      print_containers
+      echo -n "Container #> "
+      read ANS
+    fi
   else
     ANS=$1
   fi
@@ -37,4 +47,12 @@ dsh() {
     *)
     ;;
   esac
+  IFS=$ORIG_IFS
 }
+
+alias d="docker"
+alias dco="docker-compose"
+
+if [ -f "/usr/local/etc/bash_completion.d/docker-compose" ]; then
+  complete -F _docker_compose dco
+fi

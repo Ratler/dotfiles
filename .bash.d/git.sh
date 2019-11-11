@@ -12,6 +12,13 @@ alias gs="git status -s"
 
 if test -f /usr/share/bash-completion/completions/git; then
   . /usr/share/bash-completion/completions/git
+  _HAVE_GIT=1
+elif test -f /usr/local/etc/bash_completion.d/git-completion.bash; then
+  . /usr/local/etc/bash_completion.d/git-completion.bash
+  _HAVE_GIT=1
+fi
+
+if [ "$_HAVE_GIT" -eq 1 ]; then
    __git_complete g __git_main
    __git_complete gco _git_checkout
    __git_complete gp _git_pull

@@ -26,13 +26,24 @@ if type fzf &> /dev/null; then
   }
 
   s() {
-    local dir
-    dir=($(find -L $HOME/src \
-                $HOME/src/lunar \
-                -maxdepth 1 -type d -name "*$1*" -a ! -name ".Trashes" -a ! -name ".fseventsd" -a ! -name "lunar" -print 2> /dev/null))
+    local dir paths p search find_args
+
+    if [ "$1" = "." ]; then
+      p=.
+      if [ -n "$2" ]; then
+        search=$2
+      fi
+    else
+      search=$1
+      find_args="-maxdepth 1"
+    fi
+
+    paths=${p:-"$HOME/src $HOME/src/lunar"}
+
+    dir=($(find -L $paths $find_args -type d -name "*$search*" -a ! -name ".Trashes" -a ! -name ".fseventsd" -a ! -name "lunar" -print 2> /dev/null))
 
     if [[ "$dir" == "" ]]; then
-      echo "No match found for '$1'."
+      echo "No match found for '$search'."
       return
     fi
 
@@ -42,6 +53,10 @@ if type fzf &> /dev/null; then
       dir=$(printf '%s\n' "${dir[@]}" | fzf +m)
       cd "$dir"
     fi
+  }
+
+  s.() {
+    s . $@
   }
 
   complete -cf h

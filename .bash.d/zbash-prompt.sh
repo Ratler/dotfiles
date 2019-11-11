@@ -55,6 +55,10 @@ elif [ -f "/usr/share/bash/powerline.sh" ]; then
   . /usr/share/bash/powerline.sh
 fi
 
+if complete -v powerline-daemon &> /dev/null; then
+  powerline-daemon -q
+fi
+
 # Override PROMPT_COMMAND after powerline
 #export PROMPT_COMMAND="$PROMPT_COMMAND; history -a"
 
