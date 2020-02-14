@@ -4,3 +4,4 @@
 .aws/config
 .config/.token.*
 .backgrounds/*
+.wakatime.cfg
